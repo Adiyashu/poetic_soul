@@ -6,6 +6,20 @@
 const ADMIN_PASSWORD = 'poet2026'; // Change this to your desired password
 const AUTHOR_NAME = 'Poetic Soul'; // The admin/author name
 
+// ===== FIREBASE CONFIG =====
+const firebaseConfig = {
+  apiKey: "AIzaSyCfnzbeDuxGFtb9g8tF6i2sYFbv8BwhbzU",
+  authDomain: "poetic-soul.firebaseapp.com",
+  databaseURL: "https://poetic-soul-default-rtdb.firebaseio.com",
+  projectId: "poetic-soul",
+  storageBucket: "poetic-soul.firebasestorage.app",
+  messagingSenderId: "831461327472",
+  appId: "1:831461327472:web:82f50a344c6bb7f1d1aab5",
+  measurementId: "G-923282GKTS"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
 // ===== SAMPLE DATA =====
 const SAMPLE_POSTS = [
     {
@@ -94,37 +108,48 @@ let readerName = '';
 
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
-    loadData();
     createParticles();
     initNavbar();
     initCategoryTabs();
     initAdmin();
     initModal();
     initScrollReveal();
-    renderPosts();
-    updateStats();
+    loadData(); // Starts Firebase listener, which calls renderPosts() and updateStats()
 });
 
-// ===== DATA PERSISTENCE (localStorage) =====
+// ===== DATA PERSISTENCE (Firebase) =====
 function loadData() {
-    const saved = localStorage.getItem('poeticSoulPosts');
-    if (saved) {
-        posts = JSON.parse(saved);
-    } else {
-        posts = JSON.parse(JSON.stringify(SAMPLE_POSTS));
-        saveData();
-    }
+    db.ref('posts').on('value', (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+            // Firebase removes empty arrays, so ensure they exist
+            posts = data.map(p => {
+                p.likedBy = p.likedBy || [];
+                p.comments = p.comments || [];
+                p.comments.forEach(c => {
+                    c.likedBy = c.likedBy || [];
+                    c.replies = c.replies || [];
+                });
+                return p;
+            });
+        } else {
+            posts = JSON.parse(JSON.stringify(SAMPLE_POSTS));
+            saveData();
+        }
+        renderPosts();
+        updateStats();
+    });
 }
 
 function saveData() {
-    localStorage.setItem('poeticSoulPosts', JSON.stringify(posts));
-    // Flash auto-save indicator
-    const indicator = document.getElementById('autosaveIndicator');
-    if (indicator && isAdmin) {
-        indicator.style.display = 'flex';
-        indicator.style.opacity = '1';
-        setTimeout(() => { indicator.style.opacity = '0.7'; }, 1500);
-    }
+    db.ref('posts').set(posts).then(() => {
+        const indicator = document.getElementById('autosaveIndicator');
+        if (indicator && isAdmin) {
+            indicator.style.display = 'flex';
+            indicator.style.opacity = '1';
+            setTimeout(() => { indicator.style.opacity = '0.7'; }, 1500);
+        }
+    }).catch(err => console.error("Firebase save failed:", err));
 }
 
 // ===== PARTICLES =====
