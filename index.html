@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poetic Soul — Poetry, Stories & Beyond</title>
+    <meta name="description" content="A poetic journey through words — Discover poetry, short stories, novels, and shayaris that touch the soul.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========== Navbar ========== -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">Poetic Soul</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#works">Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== Hero Section ========== -->
+    <section id="home" class="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <p class="hero-tagline">Welcome to the world of</p>
+            <h1 class="hero-title">
+                <span class="title-line">Words That</span>
+                <span class="title-line accent">Touch The Soul</span>
+            </h1>
+            <p class="hero-subtitle">Poetry • Short Stories • Novels • Shayaris</p>
+            <a href="#works" class="hero-btn">
+                <span>Explore My Works</span>
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ========== About Section ========== -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <div class="about-image-frame">
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=500&h=600&fit=crop"
+                             alt="Author" class="about-image" id="authorImage">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="about-badge">
+                        <i class="fas fa-feather-pointed"></i>
+                        <span>Writer</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-label">About Me</span>
+                    <h2 class="about-title">The Pen Behind<br>The <span class="accent">Poetry</span></h2>
+                    <p class="about-text">
+                        I am a passionate writer who believes that words have the power to heal, inspire, and transform.
+                        From the tender verses of poetry to the vivid worlds of short stories and novels, my writing
+                        captures the raw beauty of human emotions. Every shayari I pen carries a piece of my soul,
+                        every story a fragment of my imagination.
+                    </p>
+                    <p class="about-text">
+                        My journey with words began as a child, scribbling thoughts in worn-out notebooks. Today, those
+                        scribbles have blossomed into a garden of literary expressions — from heartfelt poetry that speaks
+                        of love and longing, to captivating stories that transport readers to another world, and profound
+                        shayaris that echo the depth of the heart.
+                    </p>
+                    <p class="about-text">
+                        Through this space, I invite you to dive into my world of words. Read, feel, reflect — and if
+                        my words touch your soul, let me know. Every comment, every like, is a conversation between
+                        two kindred spirits.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalPosts">0</span>
+                            <span class="stat-label">Works Published</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalLikes">0</span>
+                            <span class="stat-label">Total Likes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalComments">0</span>
+                            <span class="stat-label">Comments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Works Section ========== -->
+    <section id="works" class="works-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My Collection</span>
+                <h2 class="section-title">Literary <span class="accent">Works</span></h2>
+                <p class="section-subtitle">Explore my writings across different genres</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="category-tabs" id="categoryTabs">
+                <button class="tab-btn active" data-category="all">
+                    <i class="fas fa-globe"></i>
+                    <span>All</span>
+                </button>
+                <button class="tab-btn" data-category="poetry">
+                    <i class="fas fa-feather-pointed"></i>
+                    <span>Poetry</span>
+                </button>
+                <button class="tab-btn" data-category="stories">
+                    <i class="fas fa-book-open"></i>
+                    <span>Short Stories</span>
+                </button>
+                <button class="tab-btn" data-category="novels">
+                    <i class="fas fa-book"></i>
+                    <span>Novels</span>
+                </button>
+                <button class="tab-btn" data-category="shayaris">
+                    <i class="fas fa-heart"></i>
+                    <span>Shayaris</span>
+                </button>
+            </div>
+
+            <!-- Admin: Add New Post -->
+            <div class="admin-bar" id="adminBar" style="display:none;">
+                <button class="add-post-btn" id="addPostBtn">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Add New Post</span>
+                </button>
+                <button class="admin-logout-btn" id="adminLogoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+            <div class="autosave-indicator" id="autosaveIndicator" style="display:none;">
+                <i class="fas fa-check-circle"></i>
+                <span>All posts auto-saved</span>
+            </div>
+
+            <!-- Posts Grid -->
+            <div class="posts-grid" id="postsGrid">
+                <!-- Posts will be rendered by JavaScript -->
+            </div>
+
+            <div class="empty-state" id="emptyState" style="display:none;">
+                <i class="fas fa-feather-pointed"></i>
+                <p>No works in this category yet. Stay tuned!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Contact Section ========== -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+                <p class="contact-text">
+                    If my words resonated with you, or if you just want to say hello — feel free to reach out!
+                </p>
+                <div class="contact-icons">
+                    <a href="https://instagram.com/palit__puja" target="_blank" class="contact-icon" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>@palit__puja</span>
+                    </a>
+                    <a href="mailto:poeticsoulwrites1997@gmail.com" class="contact-icon" title="Email">
+                        <i class="fas fa-envelope"></i>
+                        <span>poeticsoulwrites1997@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Footer ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-icon">✦</span>
+                    <span>Poetic Soul</span>
+                </div>
+                <p class="footer-text">Every word is a brushstroke on the canvas of the soul.</p>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/palit__puja" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:poeticsoulwrites1997@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p class="footer-copy">&copy; 2026 Poetic Soul. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== Add Post Modal ========== -->
+    <div class="modal-overlay" id="postModal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3><i class="fas fa-plus-circle"></i> Add New Post</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <form id="postForm">
+                <div class="form-group">
+                    <label for="postTitle">Title</label>
+                    <input type="text" id="postTitle" placeholder="Enter the title..." required>
+                </div>
+                <div class="form-group">
+                    <label for="postCategory">Category</label>
+                    <select id="postCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="poetry">Poetry</option>
+                        <option value="stories">Short Story</option>
+                        <option value="novels">Novel</option>
+                        <option value="shayaris">Shayari</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="postContent">Content</label>
+                    <textarea id="postContent" rows="8" placeholder="Write your piece here..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="postImage">Cover Image</label>
+                    <div class="image-upload-area" id="imageUploadArea">
+                        <input type="file" id="postImage" accept="image/*" hidden>
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click or drag to upload an image</p>
+                        <img id="imagePreview" src="" alt="" style="display:none;">
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Publish</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== Admin Login Modal ========== -->
+    <div class="modal-overlay" id="adminLoginModal">
+        <div class="modal-content glass-card small-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-lock"></i> Admin Access</h3>
+                <button class="modal-close" id="adminLoginClose">&times;</button>
+            </div>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" placeholder="Enter admin password..." required>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Login</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Write Button -->
+    <button class="fab-write-btn" id="adminTrigger" title="Login to Write">
+        <i class="fas fa-feather-pointed"></i>
+        <span class="fab-label">Write</span>
+    </button>
+
+    <!-- Floating Compose Button (after admin login) -->
+    <button class="fab-compose-btn" id="fabComposeBtn" style="display:none;" title="Compose New Post">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
