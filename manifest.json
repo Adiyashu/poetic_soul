@@ -1,0 +1,17 @@
+{
+  "name": "Poetic Soul",
+  "short_name": "Poetic Soul",
+  "description": "A poetic journey through words — Discover poetry, short stories, novels, and shayaris that touch the soul.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
