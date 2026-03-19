@@ -352,6 +352,14 @@ input, textarea, select {
     animation: fadeInUp 1s var(--ease-smooth) 0.8s both;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s var(--ease-smooth) 1s both;
+}
+
 .hero-btn {
     display: inline-flex;
     align-items: center;
@@ -370,6 +378,20 @@ input, textarea, select {
 .hero-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 40px hsla(320, 72%, 58%, 0.45);
+}
+
+.hero-btn.outline-btn {
+    background: transparent;
+    border: 2px solid var(--accent-primary);
+    color: var(--accent-primary);
+    box-shadow: none;
+}
+
+.hero-btn.outline-btn:hover {
+    background: var(--accent-primary-soft);
+    color: white;
+    border-color: var(--accent-secondary);
+    box-shadow: 0 8px 30px hsla(320, 72%, 58%, 0.2);
 }
 
 .hero-btn i {
